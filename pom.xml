@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.quantumcs</groupId>
+  <artifactId>dubbo-service</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>dubbo-service-a</module>
+    <module>dubbo-service-b</module>
+    <module>dubbo-service-c</module>
+    <module>dubbo-service-d</module>
+    <module>dubbo-service-e</module>
+    <module>dubbo-service-client</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>dubbo-service</name>
+  <url>http://maven.apache.org</url>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.3.RELEASE</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring-boot.version>1.5.3.RELEASE</spring-boot.version>
+  </properties>
+
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.3</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>jthink</groupId>
+      <artifactId>spring-boot-starter-dubbox</artifactId>
+      <version>0.0.1</version>
+      <exclusions><!--去掉log4j，使用logback-->
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.github.sgroschupf</groupId>
+          <artifactId>zkclient</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- 日志收集，包含了logback -->
+    <dependency>
+      <groupId>skyeye</groupId>
+      <artifactId>skyeye-client-logback</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+  </dependencies>
+</project>
