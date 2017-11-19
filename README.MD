@@ -6,6 +6,8 @@ dubbo的小例子，包含以下技术点
 - benchmark
 
 
+使用Docker部署，具体部署方案见：[Dubbo服务Demo应用部署](http://book.quartz.ren/455478)
+
 1、springboot的dubbo环境使用 spring-boot-starter-dubbox.
 
 添加以下依赖：
